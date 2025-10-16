@@ -1,0 +1,233 @@
+/* Definições globais e importação da fonte */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+:root {
+    --primary-color: #38b2ac; /* O verde-azulado da imagem */
+    --secondary-color: #ffffff;
+    --text-color: #4a4a4a;
+    --placeholder-color: #a0a0a0;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+}
+
+/* * 1. Layout Principal (Tela Dividida)
+ * ---------------------------------
+ */
+.container-dividido {
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 
+                0 10px 10px rgba(0, 0, 0, 0.22);
+    position: relative;
+    overflow: hidden;
+    width: 768px;
+    max-width: 100%;
+    min-height: 480px;
+    display: flex;
+    flex-direction: row;
+}
+
+/* * 2. Painel do Formulário (Lado do Cadastro)
+ * ---------------------------------
+ */
+.painel-formulario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 50px;
+    width: 58%;
+    text-align: center;
+    background-color: var(--secondary-color);
+    order: 2; /* Formulário à direita */
+}
+
+.titulo {
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.subtitulo {
+    font-size: 12px;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+/* * 3. Campos de Input (Estilo da Imagem)
+ * --------------------------------------
+ */
+.grupo-input {
+    background-color: #eee;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 8px 0;
+    padding: 0 10px;
+    border-radius: 5px;
+}
+
+.grupo-input .icon {
+    color: var(--placeholder-color);
+    margin-right: 10px;
+}
+
+.grupo-input input {
+    background-color: transparent;
+    border: none;
+    padding: 12px 10px;
+    width: 100%;
+    font-size: 14px;
+    outline: none;
+}
+
+.grupo-input input::placeholder {
+    color: var(--placeholder-color);
+}
+
+/* * 4. Botão Principal (CADASTRAR)
+ * ------------------------------------
+ */
+.botao-principal {
+    border-radius: 20px;
+    border: 1px solid var(--primary-color);
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+    margin-top: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.botao-principal:active {
+    transform: scale(0.95);
+}
+
+.botao-principal:focus {
+    outline: none;
+}
+
+/* * 5. Login Social
+ * -----------------
+ */
+.login-social {
+    margin: 15px 0;
+}
+
+.icone-social {
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+    height: 40px;
+    width: 40px;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.icone-social:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* * 6. Painel de Boas-Vindas (Lado Esquerdo - Cor Principal)
+ * --------------------------------------------------------
+ */
+.painel-boas-vindas {
+    background-color: var(--primary-color);
+    background-image: linear-gradient(to right, #45ADA8, var(--primary-color));
+    color: var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40px;
+    width: 42%;
+    text-align: center;
+    order: 1; /* Painel à esquerda */
+}
+
+.titulo-boas-vindas {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.texto-boas-vindas {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    margin: 20px 0;
+}
+
+/* Estilo para sua LOGO */
+#logo {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+/* * 7. Botão do Painel de Boas-Vindas (Branco, Borda Fina)
+ * ------------------------------------------------------
+ */
+.botao-painel {
+    background-color: transparent;
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+    font-size: 12px;
+    font-weight: bold;
+    padding: 10px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: background-color 0.3s, color 0.3s;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.botao-painel:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+/* * 8. Responsividade (Para telas menores)
+ * --------------------------------------------------------
+ */
+@media (max-width: 768px) {
+    .container-dividido {
+        flex-direction: column;
+        min-height: 90vh;
+        width: 90%;
+    }
+
+    .painel-formulario, .painel-boas-vindas {
+        width: 100%;
+        padding: 30px;
+    }
+
+    .painel-boas-vindas {
+        height: auto;
+        order: -1; 
+    }
+}

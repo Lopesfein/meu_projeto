@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div class="container-dividido">
+        
+        <div class="painel-boas-vindas">
+            <img id="logo" src="LOGO ECO CLOTHES.png" alt="Logo Eco Clothes">
+            <h1 class="titulo-boas-vindas">Bem-vindo(a)!</h1>
+            <p class="texto-boas-vindas">Não possui uma conta ainda?</p>
+            <a href="cadastrar.html" class="botao-painel">CADASTRAR</a>
+        </div>
+
+        <div class="painel-formulario">
+            
+            <h2 class="titulo">Entrar na Conta</h2>
+            <p class="subtitulo">Use seu email para logar:</p>
+
+            <div class="grupo-input">
+                <i class="fas fa-envelope icon"></i>
+                <input type="email" id="email-login" placeholder="Email" required>
+            </div>
+            
+            <div class="grupo-input">
+                <i class="fas fa-lock icon"></i>
+                <input type="password" id="senha-login" placeholder="Senha" required>
+            </div>
+            
+            <a href="recuperar-senha.html" class="esqueceu-senha">Esqueceu sua senha?</a>
+
+            <p id="msg"></p>
+
+            <button id="botao-login" class="botao-principal" onclick="login()">LOGIN</button>
+            
+        </div>
+
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>

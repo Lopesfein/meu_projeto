@@ -1,0 +1,21 @@
+{
+  "name": "meu_projeto",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon ./src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "mysql2": "^3.15.2",
+    "nodemailer": "^7.0.9",
+    "nodemon": "^3.1.10"
+  }
+}

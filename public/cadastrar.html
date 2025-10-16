@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div class="container-dividido">
+
+        <div class="painel-boas-vindas">
+            <img id="logo" src="LOGO ECO CLOTHES.png" alt="Logo Eco Clothes">
+            <h1 class="titulo-boas-vindas">Bem-vindo(a) de Volta!</h1> 
+            <p class="texto-boas-vindas">Se você já possui uma conta, clique abaixo para fazer seu login!</p>
+            <a href="login.html" class="botao-painel">ENTRAR</a>
+        </div>
+        
+        <div class="painel-formulario">
+            
+            <h2 class="titulo">Criar Sua Conta</h2> <br> <br> 
+
+            <div class="grupo-input">
+                <i class="fas fa-user icon"></i>
+                <input type="text" id="nome" placeholder="Nome Completo" required>
+            </div>
+
+            <div class="grupo-input">
+                <i class="fas fa-envelope icon"></i>
+                <input type="email" id="email" placeholder="Seu Melhor E-mail" required>
+            </div>
+            
+            <div class="grupo-input">
+                <i class="fas fa-lock icon"></i>
+                <input type="password" id="senha" placeholder="Crie uma Senha Forte" required>
+            </div>
+            
+            <p id="msg" style="margin-top: 10px;"></p>
+
+            <button id="botaocadastrar" class="botao-principal" onclick="cadastrar()">CADASTRAR</button>
+            
+        </div>
+
+    </div>
+
+    <script src="cadastro.js"></script> 
+</body>
+</html>

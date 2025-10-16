@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Senha</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div class="container-dividido">
+        
+        <div class="painel-boas-vindas">
+            <img id="logo" src="LOGO ECO CLOTHES.png" alt="Logo Eco Clothes">
+            <h1 class="titulo-boas-vindas">Recuperação</h1>
+            <p class="texto-boas-vindas">Insira seu e-mail para que possamos enviar o link de recuperação de senha.</p>
+            <a href="login.html" class="botao-painel">VOLTAR AO LOGIN</a>
+        </div>
+
+        <div class="painel-formulario">
+            
+            <h2 class="titulo">Esqueceu a Senha?</h2>
+            <p class="subtitulo">Insira seu email cadastrado:</p>
+
+            <div class="grupo-input">
+                <i class="fas fa-envelope icon"></i>
+                <input type="email" id="email-recuperacao" placeholder="Seu E-mail" required>
+            </div>
+            
+            <p id="msg-recuperacao"></p>
+
+            <button id="botao-recuperar" class="botao-principal" onclick="recuperarSenha()">
+                ENVIAR LINK
+            </button>
+            
+        </div>
+
+    </div>
+
+    <script src="recuperar-senha.js"></script>
+</body>
+</html>

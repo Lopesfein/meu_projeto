@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco Clothes: Transparência na Sua Moda</title>
+    <link rel="stylesheet" href="style.css"> 
+    
+    </head>
+<body>
+
+    <div class="main-container">
+
+        <header class="main-header">
+            <div class="menu-icon" onclick="toggleSidebar()">
+                <img src="https://via.placeholder.com/30/32CD32/FFFFFF?text=☰" alt="Menu"> </div>
+            
+            <div class="header-title">
+                <h1>Eco Clothes</h1>
+            </div>
+            
+            <div class="header-actions">
+                <button onclick="logout()">Sair</button>
+            </div>
+        </header>
+
+        <div id="sidebar" class="sidebar">
+            <button class="close-btn" onclick="toggleSidebar()">×</button>
+            <nav>
+                <a href="index.html" class="nav-link active"><i class="fas fa-home"></i> Início</a>
+                <a href="configuracoes.html" class="nav-link"><i class="fas fa-cog"></i> Configurações</a>
+                <a href="notificacoes.html" class="nav-link"><i class="fas fa-bell"></i> Notificações</a>
+                <a href="meus-produtos.html" class="nav-link"><i class="fas fa-box"></i> Meus Produtos</a>
+                <a href="login.html" onclick="logout()" class="nav-link"><i class="fas fa-sign-out-alt"></i> Sair da Conta</a>
+            </nav>
+        </div>
+
+        <main class="content">
+
+            <section class="search-section">
+                <div class="search-box">
+                    <h2>Eco Clothes: Transparência na Sua Moda.</h2>
+                    <p>Descubra o impacto real da sua roupa. Sustentável ou não? A informação que importa está aqui.</p>
+                    
+                    <div class="search-form">
+                        <input type="text" id="search-input" placeholder="Pesquisar por Nome ou Código de Barras">
+                        <button onclick="buscarProduto()"><img src="https://via.placeholder.com/20/FFFFFF?text=Q" alt="Buscar"></button> 
+                    </div>
+                    
+                    <p id="error-message" class="message error"></p>
+                </div>
+            </section>
+
+            <section id="results-container" class="results-section">
+                </section>
+
+        </main>
+    </div>
+
+    <script src="session.js"></script>
+    <script src="busca.js"></script>
+    
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+
+        function logout() {
+            localStorage.removeItem('userId');
+            localStorage.removeItem('userName');
+            // Redireciona para a página de login
+            window.location.href = 'login.html'; 
+        }
+
+        // Você pode querer chamar esta função no início para garantir que o usuário está logado
+        // function checkLoginAndRedirect() {
+        //     if (!localStorage.getItem('userId')) {
+        //         window.location.href = 'login.html';
+        //     }
+        // }
+        // checkLoginAndRedirect();
+    </script>
+</body>
+<style>
+    /* GERAIS E RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f9; /* Fundo claro */
+    color: #333;
+    min-height: 100vh;
+}
+
+/* ----------------------------------------------------
+   HEADER (Barra Superior)
+   ---------------------------------------------------- */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed; /* Fixa o header no topo */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.menu-icon img {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
+
+.header-title h1 {
+    color: #008080; /* Cor principal */
+    font-size: 24px;
+}
+
+.header-actions button {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+/* ----------------------------------------------------
+   SIDEBAR (Menu Lateral - Adaptado de 'menu-lateral' e 'menu-lateral.ativo')
+   ---------------------------------------------------- */
+
+.sidebar {
+    /* Baseado em: image_04e1b5.png e image_04f171.png */
+    position: fixed;
+    top: 0;
+    left: -250px; /* Escondido por padrão */
+    width: 250px;
+    height: 100%;
+    background-color: #008080; /* Cor Teal/Turquesa principal */
+    color: white;
+    padding: 20px 0;
+    transition: left 0.3s ease;
+    z-index: 2000; 
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    /* Se a sua classe era 'menu-lateral', use isso no seu HTML */
+}
+
+/* Esta é a chave para o menu aparecer */
+.sidebar.active {
+    left: 0; 
+    /* Se a sua classe era 'menu-lateral', use .menu-lateral.ativo */
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+}
+
+.sidebar nav {
+    margin-top: 50px;
+}
+
+.sidebar nav a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+    background-color: #006666; /* Tom mais escuro no hover/ativo */
+}
+
+
+/* ----------------------------------------------------
+   CONTEÚDO PRINCIPAL
+   ---------------------------------------------------- */
+
+.content {
+    flex-grow: 1; 
+    padding: 20px;
+    margin-top: 70px; /* Espaço para o header fixo */
+}
+
+/* ----------------------------------------------------
+   SEÇÃO DE BUSCA (Aparência adaptada das suas telas)
+   ---------------------------------------------------- */
+.search-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.search-box {
+    background-color: #ffffff; /* Fundo branco ou muito claro */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#search-input {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: 2px solid #008080;
+    border-radius: 5px 0 0 5px;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-form button {
+    padding: 12px 15px;
+    background-color: #008080;
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.search-form button:hover {
+    background-color: #006666;
+}
+
+/* ----------------------------------------------------
+   SEÇÃO DE RESULTADOS
+   ---------------------------------------------------- */
+.product-result-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+.product-result-card h3 {
+    color: #008080;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+/* Estilos de Status */
+.status-sustentável {
+    color: green;
+    font-weight: bold;
+    padding: 5px 10px;
+    background-color: #e6ffe6;
+    display: inline-block;
+    border-radius: 4px;
+}
+
+.status-não-sustentável {
+    color: red;
+    font-weight: bold;
+    padding: 5px 10px;
+    background-color: #ffe6e6;
+    display: inline-block;
+    border-radius: 4px;
+}
+</style>
+</html>
